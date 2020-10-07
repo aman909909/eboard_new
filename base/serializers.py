@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
 from rest_framework.authtoken.models import Token
-from .models import board
+from .models import board, list, card
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -17,4 +17,14 @@ class UserSerializer(serializers.ModelSerializer):
 class BoardSerializer(serializers.ModelSerializer):
     class Meta:
         model = board
+        fields = '__all__'
+
+class ListSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = list
+        fields = '__all__'
+
+class CardSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = card
         fields = '__all__'
